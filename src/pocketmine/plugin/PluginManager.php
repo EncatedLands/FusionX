@@ -99,7 +99,8 @@ class PluginManager{
 			if(!file_exists($this->pluginDataDirectory)){
 				@mkdir($this->pluginDataDirectory, 0777, true);
 			}elseif(!is_dir($this->pluginDataDirectory)){
-				throw new \RuntimeException("Plugin data path $this->pluginDataDirectory exists and is not a directory");
+				throw new \RuntimeException("Plugin data path $this->pluginDataDirectory exists and is not a directory! Force shutting down the server...");
+                                $this->server->shutdown(); // Testing still
 			}
 		}
 	}
@@ -145,14 +146,17 @@ class PluginManager{
 					try{
 						$description->checkRequiredExtensions();
 					}catch(PluginException $ex){
-						$this->server->getLogger()->error($ex->getMessage());
+						$this->server->getLogger()->error($ex->getMessage()); 
+                                                $this->server->getLogger()->error("An error has occurred while loading this plugin! Force shutting down the server...");
+                                                $this->server->shutdown(); // Testing still
 						return null;
 					}
 
 					$dataFolder = $this->getDataDirectory($path, $description->getName());
 					if(file_exists($dataFolder) and !is_dir($dataFolder)){
 						$this->server->getLogger()->error("Projected dataFolder '" . $dataFolder . "' for " . $description->getName() . " exists and is not a directory");
-						return null;
+						$this->server->shutdown();
+                                                return null;
 					}
 					if(!file_exists($dataFolder)){
 						mkdir($dataFolder, 0777, true);
@@ -163,12 +167,14 @@ class PluginManager{
 
 					$mainClass = $description->getMain();
 					if(!class_exists($mainClass, true)){
-						$this->server->getLogger()->error("Main class for plugin " . $description->getName() . " not found");
-						return null;
+						$this->server->getLogger()->error("Main class for plugin " . $description->getName() . " not found! Force shutting down the server...");
+						$this->server->shutdown(); // Testing still
+                                                return null;
 					}
 					if(!is_a($mainClass, Plugin::class, true)){
-						$this->server->getLogger()->error("Main class for plugin " . $description->getName() . " is not an instance of " . Plugin::class);
-						return null;
+						$this->server->getLogger()->error("Main class for plugin " . $description->getName() . " is not an instance of " . Plugin::class . "! Force shutting down the server...");
+						$this->server->shutdown(); // Testing still
+                                                return null;
 					}
 
 					try{
@@ -545,7 +551,8 @@ class PluginManager{
 				(new PluginEnableEvent($plugin))->call();
 			}catch(\Throwable $e){
 				$this->server->getLogger()->logException($e);
-				$this->disablePlugin($plugin);
+				$this->disablePlugin($plugin); 
+
 			}
 		}
 	}
