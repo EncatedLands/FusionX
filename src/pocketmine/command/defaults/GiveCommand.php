@@ -95,7 +95,7 @@ class GiveCommand extends VanillaCommand{
 		$player->getInventory()->addItem(clone $item);
 
 		
-		]));
+	
 		return true;
 	}
 }
