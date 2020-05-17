@@ -32,7 +32,7 @@ if(defined('pocketmine\_VERSION_INFO_INCLUDED')){
 }
 const _VERSION_INFO_INCLUDED = true;
 
-const NAME = "PocketMine-MP";
+const NAME = "FusionX";
 const BASE_VERSION = "3.12.1";
 const IS_DEVELOPMENT_BUILD = false;
 const BUILD_NUMBER = 0;
