@@ -38,49 +38,50 @@ abstract class Achievement{
 		),*/
 		"mineWood" => [
 			"name" => "Getting Wood",
-			"requires" => [ //"openInventory",
+			"requires" => [
+                                  "mineWood"
 			]
 		],
 		"buildWorkBench" => [
 			"name" => "Benchmarking",
 			"requires" => [
-				"mineWood"
+		                 "buildWorkBench"
 			]
 		],
 		"buildPickaxe" => [
 			"name" => "Time to Mine!",
 			"requires" => [
-				"buildWorkBench"
+				"buildPickaxe"
 			]
 		],
 		"buildFurnace" => [
 			"name" => "Hot Topic",
 			"requires" => [
-				"buildPickaxe"
+				"buildFurnace"
 			]
 		],
 		"acquireIron" => [
 			"name" => "Acquire hardware",
 			"requires" => [
-				"buildFurnace"
+				"aquireIron"
 			]
 		],
 		"buildHoe" => [
 			"name" => "Time to Farm!",
 			"requires" => [
-				"buildWorkBench"
+				"buildHoe"
 			]
 		],
 		"makeBread" => [
 			"name" => "Bake Bread",
 			"requires" => [
-				"buildHoe"
+				"makeBread"
 			]
 		],
 		"bakeCake" => [
 			"name" => "The Lie",
 			"requires" => [
-				"buildHoe"
+				"makeCake"
 			]
 		],
 		"buildBetterPickaxe" => [
@@ -92,13 +93,13 @@ abstract class Achievement{
 		"buildSword" => [
 			"name" => "Time to Strike!",
 			"requires" => [
-				"buildWorkBench"
+				"buildSword"
 			]
 		],
 		"diamonds" => [
 			"name" => "DIAMONDS!",
 			"requires" => [
-				"acquireIron"
+				"acquireDiamonds"
 			]
 		]
 
