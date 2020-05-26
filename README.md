@@ -15,4 +15,4 @@ Suggest some missing features that you would like the software to have. Just add
 @RealAlyxMC
 @XxMegaIS123xX
 
-[ ✓ ]
+[ ]
