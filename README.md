@@ -1,19 +1,17 @@
-# FUSIONX - SOFTWARE
+# FUSION-X
 
+## What is this?
 
-## What is FusionX?
+- FusionX is a forked software for Minecraft Bedrock Edition. This software is mainly only
+  an extension for EncatedLands server, but will still work on other servers. Note that some API
+  of this software from the original may change.
 
-FusionX is a forked software for Minecraft Bedrock Servers, This software has some features that are missing, and also minor fixes that will be useful for some players
-This software is forked from the original PocketMine-MP
+- Since FusionX is a fork of the original PocketMine-MP, some plugins may not support
+  this.
 
-## Have any suggestions?
+- The software is still under development, and can cause unexpected server crashes or plugin
+  errors. This is not yet stable for some large servers to use
 
-Suggest some missing features that you would like the software to have. Just add an issue and we'll review it as soon as possible, and possibly start it.
+## Software Version
 
-## The Collaborators
-
-@RealAlyxMC
-@XxMegaIS123xX
-
-* [x] Test
-
+- 1.0.0-beta
